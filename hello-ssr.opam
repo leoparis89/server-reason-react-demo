@@ -15,6 +15,7 @@ depends: [
   "reason"
   "dream"
   "server-reason-react"
+  "ocaml-lsp-server"
   "odoc" {with-doc}
 ]
 build: [
