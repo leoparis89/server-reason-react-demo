@@ -13,6 +13,8 @@ depends: [
   "dune" {>= "3.20"}
   "ocaml"
   "reason"
+  "dream"
+  "server-reason-react"
   "odoc" {with-doc}
 ]
 build: [

@@ -1,4 +1,4 @@
 (executable
  (public_name hello-ssr)
  (name main)
- (libraries hello_ssr))
+ (libraries dream))
