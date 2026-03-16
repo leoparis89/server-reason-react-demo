@@ -1,3 +1,6 @@
+install:
+	opam install . --deps-only
+
 build:
 	dune build
 

@@ -19,7 +19,7 @@
  (name hello-ssr)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml reason dream server-reason-react)
+ (depends ocaml reason dream server-reason-react ocaml-lsp-server)
  (tags
   ("add topics" "to describe" your project)))
 
