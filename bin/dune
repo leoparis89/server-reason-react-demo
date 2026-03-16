@@ -1,4 +1,5 @@
 (executable
  (public_name hello-ssr)
  (name main)
- (libraries dream))
+ (libraries dream server-reason-react.react server-reason-react.reactDom)
+ (preprocess (pps server-reason-react.ppx)))
