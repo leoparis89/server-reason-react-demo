@@ -1,0 +1,15 @@
+(include_subdirs unqualified)
+
+(library
+ (name hello_shared_js)
+ (modes melange)
+ (wrapped false)
+ (libraries
+  reason-react
+  melange.dom
+  melange-webapi)
+ (preprocess
+  (pps reason-react-ppx melange.ppx)))
+
+(copy_files
+ (files "../native/shared/*.re"))

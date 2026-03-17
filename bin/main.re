@@ -16,6 +16,7 @@ module Home = {
       <p> {React.string("Welcome to hello-ssr!")} </p>
       <a href="/about"> {React.string("Go to About")} </a>
       <a href="/stream"> {React.string(" | Go to Streaming")} </a>
+      <a href="/hydrate"> {React.string(" | Go to Hydration Demo")} </a>
     </Layout>;
 };
 
@@ -79,12 +80,30 @@ let streamRender = component =>
     },
   );
 
+// Hydration demo: server renders the page with a <script> tag.
+// The browser loads the JS bundle, which calls hydrateRoot to attach
+// React to the existing DOM, making the Counter interactive.
+let hydrateRender = _req =>
+  Dream.html(
+    ReactDOM.renderToString(
+      <Document title="Hydration Demo" script="/static/HydrateRoot.re.js">
+        <HydratePage />
+      </Document>,
+    ),
+  );
+
 Dream.run(~port=8080, ~interface="localhost",
   Dream.logger(
     Dream.router([
       Dream.get("/", _req => render(<Home />)),
       Dream.get("/about", _req => render(<About />)),
       Dream.get("/stream", _req => streamRender(<Stream />)),
+      Dream.get("/hydrate", hydrateRender),
+      // Serve client JS bundles from the esbuild output directory
+      Dream.get(
+        "/static/**",
+        Dream.static("static"),
+      ),
     ]),
   ),
 );

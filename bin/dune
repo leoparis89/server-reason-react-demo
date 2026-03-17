@@ -1,5 +1,5 @@
 (executable
  (public_name hello-ssr)
  (name main)
- (libraries dream lwt lwt.unix server-reason-react.react server-reason-react.reactDom)
+ (libraries dream lwt lwt.unix server-reason-react.react server-reason-react.reactDom hello_shared_native)
  (preprocess (pps lwt_ppx server-reason-react.ppx)))

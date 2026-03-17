@@ -1,0 +1,11 @@
+(include_subdirs unqualified)
+
+(library
+ (name hello_shared_native)
+ (modes native)
+ (wrapped false)
+ (libraries
+  server-reason-react.react
+  server-reason-react.reactDom)
+ (preprocess
+  (pps server-reason-react.ppx)))

@@ -1,0 +1,12 @@
+(melange.emit
+ (target app)
+ (module_systems
+  (es6 re.js))
+ (libraries
+  melange
+  reason-react
+  melange.dom
+  melange-webapi
+  hello_shared_js)
+ (preprocess
+  (pps reason-react-ppx melange.ppx)))
